@@ -69,8 +69,13 @@ module CASServer::Views
         :onsubmit => "submitbutton = document.getElementById('login-submit'); submitbutton.value='#{ _("Please wait...") }'; submitbutton.disabled=true; return true;") do
       table(:id => "form-layout") do
         tr do
+          td(:colspan => 2) do
+            _ ("Enter your Exvo ID and Password")
+          end
+        end
+        tr do
           td(:id => "username-label-container") do
-            label(:id => "username-label", :for => "username") { _( "Username" ) }
+            label(:id => "username-label", :for => "username") { _( "Login" ) }
           end
           td(:id => "username-container") do
             input(:type => "text", :id => "username", :name => "username",
@@ -83,7 +88,7 @@ module CASServer::Views
           end
           td(:id => "password-container") do
             input(:type => "password", :id => "password", :name => "password", 
-              :size => "32", :tabindex => "2", :accesskey => "p", :autocomplete => "off")
+              :size => "32", :tabindex => "2", :accesskey => "p")
           end
         end
         tr do
@@ -94,10 +99,14 @@ module CASServer::Views
             input(:type => "submit", :class => "button", :accesskey => "l", :value => _("LOGIN"), :tabindex => "4", :id => "login-submit")
           end
         end
-        tr do
-          td(:colspan => 2, :id => "infoline") { infoline }
-        end if @include_infoline
+        #tr do
+          #td(:colspan => 2, :id => "infoline") { infoline }
+        #end if @include_infoline
       end
+    end
+    div(:id => "other-buttons-container") do
+      a(:href => "https://auth.exvo.com:4430/auth/users/new", :class => "button"){_("Create Account")}
+      a(:href => ''){_("Sign In with Open ID")}
     end
   end
   
