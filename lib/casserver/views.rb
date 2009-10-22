@@ -33,6 +33,11 @@ module CASServer::Views
   # 2.1.3
   # The full login page.
   def login
+    # rendering using ERB template
+    require 'erb'
+    data = File.read('views/login.html.erb')
+    return ERB.new(data).result(binding)
+
     @use_layout = true
     
     table(:id => "login-box") do

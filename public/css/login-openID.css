@@ -1,0 +1,312 @@
+*{
+    font-family:Arial;
+    padding:0;
+    margin:0;
+}
+body{
+    background-color:#DFE1E3;
+    overflow-x:hidden;
+}
+table{
+    border-collapse:collapse;
+}
+
+
+table.dock {
+    background-color:#393F45;
+    height:56px;
+    width:100%;
+    border:none;
+    margin:0;
+    padding:0;
+    -moz-box-shadow:#676767 0 2px 3px;
+    -webkit-box-shadow:#676767 0 2px 3px;
+}
+table.dock td.left {
+    width:300px;
+}
+table.dock td.center {
+    text-align:center;
+}
+table.dock td.right {
+    width:300px;
+}
+div.dock-left {
+    text-align:left;
+    margin-left:15px;
+}
+div.dock-right {
+    float:right;
+    margin-right:15px;
+    font-family: "Lucida Grande", sans-serif;
+    font-weight:bold;
+    font-size:1.6em;
+}
+div.dock-right table.login-buttons {
+    display:block;
+    margin-right:10px;
+    margin-top:5px;
+}
+div.dock-right table.login-buttons td.btn {
+}
+div.dock-right table.login-buttons td.txt {
+    color:#FFFFFF;
+    font-weight:bold;
+    padding:0 4px;
+}
+div.shortcut, div.shortcut-placeholder {
+    margin-top:2px;
+    display:inline-block;
+    padding:2px 5px;
+}
+#dock-dd, .dock-left {
+    height:56px;
+}
+#dock-dd.over {
+    background-color:red;
+}
+div#dock-dd div.shortcut-placeholder {
+    height:50px;
+    width:0;
+}
+div.dock div.shortcut img {
+    height:32px;
+    width:32px;
+}
+div.shortcut a {
+    color:#FFFFFF;
+    display:block;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+}
+div.shortcut a img {
+    border:medium none;
+}
+div.dock div.shortcut a:hover {
+}
+div.toolbar {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#E4EBF1 url(/images/top_menu_shadow.png) repeat-x scroll center top;
+    border-bottom:1px solid #CCCCCC;
+    height:48px;
+    width:100%;
+}
+div.toolbar-left {
+    float:left;
+}
+div.toolbar-right {
+    float:right;
+}
+div.toolbar h1 {
+    color:#333333;
+    font-family:Arial;
+    font-size:24px;
+    font-weight:bold;
+    margin:12px 0 0 15px;
+}
+div.toolbar div.input {
+    margin:12px 15px 0 0;
+}
+
+.button, .over-button, .pressed-button {
+    display: inline-block;
+    font-size: 11px;
+    color: #333;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+a.button .button-left {
+    width: 7px;
+    height: 30px;
+    background: url(images/button_left.png) no-repeat 0 0;
+}
+
+a.button .button-right {
+    width: 7px;
+    height: 30px;
+    background: url(images/button_right.png) no-repeat 0 0;
+}
+
+a.button .button-middle {
+    width: 1px;
+    height: 30px;
+    background: url(images/button_bkg.png) repeat-x 0 0;
+}
+
+.button-middle {
+    padding: 0 7px 0 7px;
+    white-space: nowrap;
+    color: #4f4f4f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+a.over-button .button-left {
+    width: 7px;
+    height: 30px;
+    background: url(images/over_button_left.png) no-repeat 0 0;
+}
+
+a.over-button .button-right {
+    width: 7px;
+    height: 30px;
+    background: url(images/over_button_right.png) no-repeat 0 0;
+}
+
+a.over-button .button-middle {
+    width: 1px;
+    height: 30px;
+    background: url(images/over_button_bkg.png) repeat-x 0 0;
+    white-space: nowrap;
+}
+
+a.pressed-button .button-left {
+    width: 7px;
+    height: 30px;
+    background: url(images/pressed_button_left.png) no-repeat 0 0;
+}
+
+a.pressed-button .button-right {
+    width: 7px;
+    height: 30px;
+    background: url(images/pressed_button_right.png) no-repeat 0 0;
+}
+
+a.pressed-button .button-middle {
+    width: 1px;
+    height: 30px;
+    background: url(images/pressed_button_bkg.png) repeat-x 0 0;
+    white-space: nowrap;
+}
+
+div.toolbar div.input {
+    margin: 12px 15px 0 0;
+}
+
+div.input *{
+    display: block;
+    float:left;
+    width: 5px;
+    height: 24px;
+}
+
+div.input span.left{
+    width: 5px;
+    height: 24px;
+    background: url(images/input_border_left.png) no-repeat 0 0;
+}
+
+div.input span.right{
+    width: 5px;
+    height: 24px;
+    float:left;
+    background: url(images/input_border_right.png) no-repeat 0 0;
+}
+
+div.input input{
+    border: 0 none;
+    outline: none;
+    height: 18px;
+    background: url(images/input_border.png) repeat-x 0 0;
+    padding: 3px 0 3px 0;
+    width: 120px;
+    height: 20px;
+}
+
+input.search-default {
+    color: #b8b8b8;
+}
+
+
+.login-wraper{
+    width:385px;
+    margin:auto;
+    margin-top:100px;
+    text-align:center;
+}
+.login-wraper h1{
+    font-size:1.6em;
+}
+.login-wraper form{
+    margin-top:20px;
+}
+.login-wraper fieldset{
+    padding-top:10px;
+    border-width:2px;
+    border-style:solid;
+    border-color:#D2D2D2;
+    background-color:#F3F3F3;
+}
+.login-wraper fieldset>h2{
+    margin-bottom:10px;
+    font-size:1em;
+    text-align:left;
+    padding-left:30px;
+}
+
+.login-wraper .input-field{
+    padding-top:5px;
+
+}
+.login-wraper .input-field>div{
+    display:inline-block;
+    float:left;
+    margin-left:3px;
+}
+.login-wraper .input-field>div:first-child{
+    margin-left:30px;
+    margin-top:3px;
+}
+.login-wraper .input-field input{
+    width:250px;
+    
+}
+
+.login-wraper .input-field a, .login-wraper .form-additional-info a{
+    padding-left:5px;
+}
+
+.checkbox_img{
+    cursor:pointer;
+}
+
+.login-wraper .form-additional-info>div{
+    font-size:12px;
+    padding-bottom:20px;
+    padding-top:5px;
+    float:left;
+    text-align:left;
+}
+.login-wraper .form-additional-info .rem-me{
+    margin-left:30px;
+}
+.login-wraper .form-additional-info .lost-password{
+    margin-left:78px;
+}
+.login-wraper .form-additional-info label{
+    position:relative;
+    top:-2px;
+    padding-left:5px;
+}
+.login-wraper .form-bottom{
+    border-top-style:solid;
+    border-top-width:2px;
+    border-top-color:#D2D2D2;
+    background-color:#E3EAF0;
+    padding:3px;
+}
+
+.login-wraper .form-bottom .form-bottom-l{
+    float:left;
+    text-align:left;
+}
+.login-wraper .form-bottom .form-bottom-r{
+    float:right;
+    text-align:right;
+}
+

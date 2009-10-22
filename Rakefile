@@ -113,3 +113,9 @@ desc "clear all generated files for SSL certificate"
 task :clear_ssl_certificate do
   `rm -rf ssl`
 end
+
+desc "Runs locally"
+task :run do
+  system "echo -ne '\033]0;rubycas\007'"
+  exec "bin/rubycas-server"
+end

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/login.css" />
+        <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="js/imagetick.js"></script>
+        <script type="text/javascript" src="js/jquery.cacheimage.js"></script>
+        <script type="text/javascript" src="js/images_preloader.js"></script>
+        <script type="text/javascript" src="js/events.js"></script>
+        <title>Login page</title>
+    </head>
+    <body>
+        <table class="dock">
+            <tbody><tr>
+                    <td class="left">
+                        <div class="dock-left">
+                            <div class="shortcut"><table><tbody><tr><td><a href="http://desktop.exvo.com"><img src="images/exvo_components/dock/desktop.png"/><br/>Desktop</a></td></tr></tbody></table></div>
+
+                        </div>
+                    </td>
+                    <td class="center">
+                        <div class="dock-center ui-sortable" id="dock-dd" unselectable="on" style="-moz-user-select: none;">
+                            <div class="shortcut"><table><tbody><tr><td><a href="http://store.exvo.com"><img src="images/exvo_components/dock/store.png"/><br/>Store</a></td></tr></tbody></table></div>
+                            <div class="shortcut"><table><tbody><tr><td><a href="" title="Not implemented"><img src="images/exvo_components/dock/entrepreneurship.png"/><br/>Entrepreneurship</a></td></tr></tbody></table></div>
+                            <div class="shortcut"><table><tbody><tr><td><a href="" title="Not implemented"><img src="images/exvo_components/dock/team.png"/><br/>Teams</a></td></tr></tbody></table></div>
+                            <br style="clear:both" />
+                        </div>
+                    </td>
+                    <td class="right">
+                        <div class="dock-right">Exvo</div>
+                    </td>
+                </tr>
+            </tbody></table>
+        <div class="login-wraper">
+            <h1>
+                Sign in with your Exvo ID
+            </h1>
+            <% if @message %>
+              <h3 class="messagebox <%= @message[:type] %>"><%= @message[:message] %></h3>
+            <% end %>
+            <form id="login-form" action="<%= @form_action || "/login" %>" method="post">
+              <input type="hidden" name="lt" value="<%= @lt %>" />
+              <input type="hidden" name="service" value="<%= @service %>" />
+                <fieldset>
+                    <legend></legend>
+                    <h2>Enter your Exvo ID and Password</h2>
+                    <div class="input-field">
+                        <div class="input">
+                            <span class="left">  </span>
+                            <input id="username" name="username" class="search-default animated_txt" type="text" value="Username" title="Username" />
+                            <span class="right"> </span>
+                        </div>
+                        <br style="clear:both" />
+                    </div>
+                    <div class="input-field">
+                        <div class="input">
+                            <span class="left">  </span>
+                            <input id="password" name="password" class="search-default animated_txt" type="password" value="Password" title="Password" />
+                            <span class="right"> </span>
+                        </div>
+                        <div>
+                            <input id="noscript-signup" type="submit" value="Login" style="width: 59px; margin-left: 5px; margin-top: 4px;" />
+                            <a id="script-signup" class="button" style="display: none;" onclick="$('#login-form').submit();return false;">
+                                <table>
+                                    <tr>
+                                        <td class="button-left"></td>
+                                        <td class="button-middle">Login</td>
+                                        <td class="button-right"></td>
+                                    </tr>
+                                </table>
+                            </a>
+                            <script type='text/javascript'>
+                              //<![CDATA[
+                              $('#script-signup').show();
+                              $('#noscript-signup').hide();
+                              //]]>
+                            </script>
+                        </div>
+                        <br style="clear:both" />
+                    </div>
+                    <div class="form-additional-info">
+                        <div class="rem-me" title="Not implemented">
+                          <input id="rem-me" type="checkbox" class="checkbox" />
+                          <label for="rem-me">Remember me</label>
+                        </div>
+                        <div class="lost-password">
+                            <a href="#lost-password" title="Not implemented">Forgot password?</a>
+                        </div>
+                        <br style="clear:both" />
+                    </div>
+                    <div class="form-bottom">
+                        <div class="form-bottom-l">
+                            <a class="button" href="https://auth.exvo.com:4430/auth/users/new">
+                                <table>
+                                    <tr>
+                                        <td class="button-left"></td>
+                                        <td class="button-middle">Create account</td>
+                                        <td class="button-right"></td>
+                                    </tr>
+                                </table>
+                            </a>
+                        </div>
+                        <div class="form-bottom-r">
+                            <a class="button" title="Not implemented">
+                                <table>
+                                    <tr>
+                                        <td class="button-left" ></td>
+                                        <td class="button-middle">Sign in with Open ID</td>
+                                        <td class="button-right"></td>
+                                    </tr>
+                                </table>
+                            </a>
+                        </div>
+                        <br style="clear:both" />
+                    </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

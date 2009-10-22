@@ -1,0 +1,71 @@
+.button, .over-button, .pressed-button {
+    display: inline-block;
+    font-size: 11px;
+    color: #333;
+    cursor:pointer;
+}
+
+a.button .button-left {
+    width: 7px;
+    height: 30px;
+    background: url(images/button_left.png) no-repeat 0 0;
+}
+
+a.button .button-right {
+    width: 7px;
+    height: 30px;
+    background: url(images/button_right.png) no-repeat 0 0;
+}
+
+a.button .button-middle {
+    width: 1px;
+    height: 30px;
+    background: url(images/button_bkg.png) repeat-x 0 0;
+}
+
+.button-middle {
+    padding: 0 7px 0 7px;
+    white-space: nowrap;
+    color: #4f4f4f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+a.over-button .button-left {
+    width: 7px;
+    height: 30px;
+    background: url(images/over_button_left.png) no-repeat 0 0;
+}
+
+a.over-button .button-right {
+    width: 7px;
+    height: 30px;
+    background: url(images/over_button_right.png) no-repeat 0 0;
+}
+
+a.over-button .button-middle {
+    width: 1px;
+    height: 30px;
+    background: url(images/over_button_bkg.png) repeat-x 0 0;
+    white-space: nowrap;
+}
+
+a.pressed-button .button-left {
+    width: 7px;
+    height: 30px;
+    background: url(images/pressed_button_left.png) no-repeat 0 0;
+}
+
+a.pressed-button .button-right {
+    width: 7px;
+    height: 30px;
+    background: url(images/pressed_button_right.png) no-repeat 0 0;
+}
+
+a.pressed-button .button-middle {
+    width: 1px;
+    height: 30px;
+    background: url(images/pressed_button_bkg.png) repeat-x 0 0;
+    white-space: nowrap;
+}
