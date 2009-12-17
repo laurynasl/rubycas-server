@@ -25,6 +25,9 @@
                             <div class="shortcut"><table><tbody><tr><td><a href="http://store.exvo.com"><img src="images/exvo_components/dock/store.png"/><br/>Store</a></td></tr></tbody></table></div>
                             <div class="shortcut"><table><tbody><tr><td><a href="" title="Not implemented"><img src="images/exvo_components/dock/entrepreneurship.png"/><br/>Entrepreneurship</a></td></tr></tbody></table></div>
                             <div class="shortcut"><table><tbody><tr><td><a href="" title="Not implemented"><img src="images/exvo_components/dock/team.png"/><br/>Teams</a></td></tr></tbody></table></div>
+                            <% if @logged_in %>
+                              <div class="shortcut"><table><tbody><tr><td><a href="/auth/account/basics"><img src="images/exvo_components/dock/team.png"/><br/>My Account</a></td></tr></tbody></table></div>
+                            <% end %>
                             <br style="clear:both" />
                         </div>
                     </td>

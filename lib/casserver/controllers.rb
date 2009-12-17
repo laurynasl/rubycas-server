@@ -30,6 +30,7 @@ module CASServer::Controllers
       if tgt and !tgt_error
         @message = {:type => 'notice', 
           :message => _("You are currently logged in as '%s'. If this is not you, please log in below.") % tgt.username }
+        @logged_in = true
       end
 
       if input['redirection_loop_intercepted']
@@ -189,6 +190,7 @@ module CASServer::Controllers
         if @service.blank?
           $LOG.info("Successfully authenticated user '#{@username}' at '#{tgt.client_hostname}'. No service param was given, so we will not redirect.")
           @message = {:type => 'confirmation', :message => _("You have successfully logged in.")}
+          @logged_in = true
         else
           @st = generate_service_ticket(@service, @username, tgt)
           begin
