@@ -35,7 +35,7 @@
         var theme_path = 'http://themes.exvo.com/Carbon/';
         var images_path = theme_path + 'css/images/';
         var desktop_url = 'http://desktop.exvo.com/';
-        var logged = <%= @logged_in %>;
+        var logged = <%= @logged_in == true ? true : false  %>;
       </script>
     
     </head>
