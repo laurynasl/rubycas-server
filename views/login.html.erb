@@ -1,126 +1,224 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="/css/login.css" />
-        <script type="text/javascript" src="/js/jquery-1.3.2.js"></script>
-        <script type="text/javascript" src="/js/jquery-ui-1.7.2.custom.min.js"></script>
-        <script type="text/javascript" src="/js/imagetick.js"></script>
-        <script type="text/javascript" src="/js/jquery.cacheimage.js"></script>
-        <script type="text/javascript" src="/js/images_preloader.js"></script>
-        <script type="text/javascript" src="/js/events.js"></script>
-        <title>Login page</title>
+        <title>Account</title>
+        
+      <link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/css/jquery.contextMenu.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/css/dock.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/button.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/checkbox.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/combobox.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/dialog.css" />
+
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/input.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/pagination.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/pathbar.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/radiobutton.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/selectbox.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/slider.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/switch.css" />
+<link rel="stylesheet" type="text/css" href="http://themes.bashquest.com/Carbon/css/tabgroup.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+      <script type="text/javascript" src="http://themes.bashquest.com/js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="http://themes.bashquest.com/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="http://themes.bashquest.com/js/imagetick.js"></script>
+
+<script type="text/javascript" src="http://themes.bashquest.com/js/jquery.selectbox-0.3.js"></script>
+<script type="text/javascript" src="http://themes.bashquest.com/js/jquery.contextMenu.js"></script>
+<script type="text/javascript" src="http://themes.bashquest.com/js/general.js"></script>
+<script type="text/javascript" src="http://themes.bashquest.com/js/events.js"></script>
+
+      <script type="text/javascript">
+        var theme_path = 'http://themes.bashquest.com/Carbon/';
+        var images_path = theme_path + 'css/images/';
+        var desktop_url = 'http://desktop.bashquest.com/';
+        var logged = false;
+      </script>
+    
     </head>
     <body>
-        <table class="dock">
-            <tbody><tr>
-                    <td class="left">
-                        <div class="dock-left">
-                            <div class="shortcut"><table><tbody><tr><td><a href="http://desktop.exvo.com"><img src="/images/exvo_components/dock/desktop.png"/><br/>Desktop</a></td></tr></tbody></table></div>
+    
+      <table class="dock">
 
-                        </div>
-                    </td>
-                    <td class="center">
-                        <div class="dock-center ui-sortable" id="dock-dd" unselectable="on" style="-moz-user-select: none;">
-                            <div class="shortcut"><table><tbody><tr><td><a href="http://store.exvo.com"><img src="/images/exvo_components/dock/store.png"/><br/>Store</a></td></tr></tbody></table></div>
-                            <div class="shortcut"><table><tbody><tr><td><a href="" title="Not implemented"><img src="/images/exvo_components/dock/entrepreneurship.png"/><br/>Entrepreneurship</a></td></tr></tbody></table></div>
-                            <div class="shortcut"><table><tbody><tr><td><a href="" title="Not implemented"><img src="/images/exvo_components/dock/team.png"/><br/>Teams</a></td></tr></tbody></table></div>
-                            <% if @logged_in %>
-                              <div class="shortcut"><table><tbody><tr><td><a href="/auth/account/basics"><img src="/images/exvo_components/dock/team.png"/><br/>My Account</a></td></tr></tbody></table></div>
-                            <% end %>
-                            <br style="clear:both" />
-                        </div>
-                    </td>
-                    <td class="right">
-                        <div class="dock-right">Exvo</div>
-                    </td>
-                </tr>
-            </tbody></table>
-        <div class="login-wraper">
-            <h1>
-                Sign in with your Exvo ID
-            </h1>
-            <% if @message %>
-              <h3 class="messagebox <%= @message[:type] %>"><%= @message[:message] %></h3>
-            <% end %>
-            <form id="login-form" action="<%= @form_action || "/login" %>" method="post">
-              <input type="hidden" name="lt" value="<%= @lt %>" />
-              <input type="hidden" name="service" value="<%= @service %>" />
-                <fieldset>
-                    <legend></legend>
-                    <h2>Enter your Exvo ID and Password</h2>
-                    <div class="input-field">
-                        <div class="input">
-                            <span class="left">  </span>
-                            <input id="username" name="username" class="search-default animated_txt" type="text" value="Username" title="Username" />
-                            <span class="right"> </span>
-                        </div>
-                        <br style="clear:both" />
-                    </div>
-                    <div class="input-field">
-                        <div class="input">
-                            <span class="left">  </span>
-                            <input id="password" name="password" class="search-default animated_txt" type="password" value="Password" title="Password" />
-                            <span class="right"> </span>
-                        </div>
-                        <div>
-                            <input id="noscript-signup" type="submit" value="Login" style="width: 59px; margin-left: 5px; margin-top: 4px;" />
-                            <a id="script-signup" class="button" style="display: none;" onclick="$('#login-form').submit();return false;">
-                                <table>
-                                    <tr>
-                                        <td class="button-left"></td>
-                                        <td class="button-middle">Login</td>
-                                        <td class="button-right"></td>
-                                    </tr>
-                                </table>
-                            </a>
-                            <script type='text/javascript'>
-                              //<![CDATA[
-                              $('#script-signup').show();
-                              $('#noscript-signup').hide();
-                              //]]>
-                            </script>
-                        </div>
-                        <br style="clear:both" />
-                    </div>
-                    <div class="form-additional-info">
-                        <div class="rem-me" title="Not implemented">
-                          <input id="rem-me" type="checkbox" class="checkbox" />
-                          <label for="rem-me">Remember me</label>
-                        </div>
-                        <div class="lost-password">
-                            <a href="/auth/lost_password">Forgot password?</a>
-                        </div>
-                        <br style="clear:both" />
-                    </div>
-                    <div class="form-bottom">
-                        <div class="form-bottom-l">
-                            <a class="button" href="/auth/users/new">
-                                <table>
-                                    <tr>
-                                        <td class="button-left"></td>
-                                        <td class="button-middle">Create account</td>
-                                        <td class="button-right"></td>
-                                    </tr>
-                                </table>
-                            </a>
-                        </div>
-                        <div class="form-bottom-r">
-                            <a class="button" title="Not implemented" style="display: none;">
-                                <table>
-                                    <tr>
-                                        <td class="button-left" ></td>
-                                        <td class="button-middle">Sign in with Open ID</td>
-                                        <td class="button-right"></td>
-                                    </tr>
-                                </table>
-                            </a>
-                        </div>
-                        <br style="clear:both" />
-                    </div>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+        <tr>
+          <td class="left">
+            <div class="icon-splitter"></div>
+            <div class="dock-left">
+              <div class='shortcut'><table><tr><td><a href='http://desktop.bashquest.com/' id='_icon' title='Desktop'><img src="http://themes.bashquest.com/css/images/desktop.png?010814095144" /><span class='shortcut-caption'>Desktop</span></a></td></tr></table></div>
+              <div class='shortcut' id='dock_hidden' style='display: none'><table><tr><td><a href='http://desktop.bashquest.com/dock?url=http%3A%2F%2Fwww.example.com' id='dock_hidden_icon' title='Example1'><img src="http://themes.bashquest.com/css/images/shortcut_32.png?01081409515" /><span class='shortcut-caption'>Example1</span></a></td></tr></table></div>
+            </div>
+          </td>
+
+          <td class="dock-arrow back"></td>
+          <td class="center">
+            <div id="dock-dd" class="dock-center"><div class='dock-icons-wrap'></div></div>
+          </td>
+          <td class="dock-arrow next"></td>
+          <td class="right">
+            <div class="icon-splitter"></div>
+            <div class="dock-right">
+              
+        <table class="login-buttons">
+
+          <tr>
+            <td class="btn">
+      <table class="button">
+        <tr>
+          <td class="button-left"><a href="/login"></a></td>
+          <td class="button-middle"><a href="/login">Login</a></td>
+          <td class="button-right"><a href="/login"></a></td>
+        </tr>
+
+      </table>
+    </td>
+            <td class="txt">or</td>
+            <td class="btn">
+      <table class="button">
+        <tr>
+          <td class="button-left"><a href="https://auth.exvo.com:4430/auth/users/new?service=https://auth.bashquest.com:4430"></a></td>
+          <td class="button-middle"><a href="https://auth.exvo.com:4430/auth/users/new?service=https://auth.bashquest.com:4430">Signup</a></td>
+
+          <td class="button-right"><a href="https://auth.exvo.com:4430/auth/users/new?service=https://auth.bashquest.com:4430"></a></td>
+        </tr>
+      </table>
+    </td>
+          </tr>
+        </table>
+      
+            </div>
+          </td>
+        </tr>
+
+      </table>
+      <ul id="dock-right-menu" class="context-menu">
+        <li class="delete" ><a href="#removeFromDock">Remove</a></li>
+      </ul>
+    
+    <div class="content">
+      <div class="login-box">
+  <h1>Sign in with your Exvo ID</h1>
+  <% if @message %>
+    <h3 class="messagebox <%= @message[:type] %>"><%= @message[:message] %></h3>
+
+  <% end %>
+  
+      <div class="exvo-box">
+        <table >
+    
+      <tr>
+        <td class="header-left"></td>
+        <td class="header">
+          <span>Enter your Exvo ID and Password</span>
+        </td>
+        <td class="header-right"></td>
+
+      </tr>
+    
+      <tr>
+        <td class="body-left"></td>
+        <td class="body">
+          <span>  <form id="login-form" action="<%= @form_action || "/login" %>" method="post">
+    <input type="hidden" value="<%= @lt %>" class="hidden" name="lt" id="nil_class_lt"/>
+    <input type="hidden" value="<%= @service %>" class="hidden" name="service" id="nil_class_service"/>
+    <table>
+      <tr>
+
+        <td>
+      <div class="input ">
+        <span class="left">
+        </span>
+        <input type="text" value="" class="animated_txt search-default text" title="Username" name="username" id="nil_class_username"/>
+        <span class="right">
+        </span>
+      </div>
+    </td>
+
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+      <div class="input ">
+        <span class="left">
+        </span>
+        <input type="password" value="" class="animated_txt search-default password" title="Password" name="password" id="nil_class_password"/>
+        <span class="right">
+
+        </span>
+      </div>
+    </td>
+        <td><button type="submit" class="submit-button">
+      <table class="button">
+        <tr>
+          <td class="button-left"></td>
+          <td class="button-middle">Login</td>
+
+          <td class="button-right"></td>
+        </tr>
+      </table>
+    </button> <!--a id="script-signup" class="button" style="display: none;" onclick="$('#login-form').submit();return false;"--></td>
+      </tr>
+      <tr>
+        <td>
+      <div class="checkbox-wrap ">
+
+        <input type="checkbox" class="checkbox" title="Not implemented" name="rem-me" id="rem-me_id"/><label for="rem-me_id">Remember me</label>
+      </div>
+    </td>
+        <td><a href="/auth/lost_password">Forgot password?</a></td>
+      </tr>
+      <!--tr>
+        <td colspan="2"></td>
+      </tr-->
+    </table>  
+  </form>
+
+</span>
+        </td>
+        <td class="body-right"></td>
+      </tr>
+    
+      <tr>
+        <td class="splitter-left"></td>
+        <td class="splitter"></td>
+        <td class="splitter-right"></td>
+      </tr>
+
+      <tr>
+        <td class="footer-left"></td>
+        <td class="footer">
+          <div class="buttons">
+            <span>
+      <table class="button">
+        <tr>
+          <td class="button-left"><a href="/auth/users/new"></a></td>
+          <td class="button-middle"><a href="/auth/users/new">Create account</a></td>
+
+          <td class="button-right"><a href="/auth/users/new"></a></td>
+        </tr>
+      </table>
+    </span>
+          </div>
+        </td>
+        <td class="footer-right"></td>
+      </tr>
+      <tr>
+
+        <td class="bottom-left"></td>
+        <td class="bottom"></td>
+        <td class="bottom-right"></td>
+      </tr>
+     
+        </table>
+      </div>
+    
+</div>
+
+
+
+    </div>
     </body>
 </html>
+
