@@ -1,3 +1,10 @@
+<%
+  if @service
+    @signup_url = '/auth/users/new?service=' + @service
+  else
+    @signup_url = '/auth/users/new'
+  end
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
     <head>
@@ -67,7 +74,7 @@
             <td class="txt">or</td>
             <td class="btn">
       <div class="button ">
-          <span class="button-left"><a href="https://auth.exvo.com:4430/auth/users/new?service=https://auth.exvo.com:4430"></a></span><span class="button-middle"><a href="https://auth.exvo.com:4430/auth/users/new?service=https://auth.exvo.com:4430">Signup</a></span><span class="button-right"><a href="https://auth.exvo.com:4430/auth/users/new?service=https://auth.exvo.com:4430"></a></span>
+        <span class="button-left"><a href="<%= @signup_url %>"></a></span><span class="button-middle"><a href="<%= @signup_url %>">Signup</a></span><span class="button-right"><a href="<%= @signup_url %>"></a></span>
       </div>
     </td>
           </tr>
@@ -108,7 +115,7 @@
           <tr>
             <td colspan="2" class="last">
       <div class="button ">
-          <span class="button-left"><a href="/auth/users/new"></a></span><span class="button-middle"><a href="/auth/users/new">Create Account</a></span><span class="button-right"><a href="/auth/users/new"></a></span>
+        <span class="button-left"><a href="<%= @signup_url %>"></a></span><span class="button-middle"><a href="<%= @signup_url %>">Create Account</a></span><span class="button-right"><a href="<%= @signup_url %>"></a></span>
       </div>
 
     <% if @logged_in %>
@@ -250,7 +257,7 @@
     </td>
             <td>
       <div class="button  action-button">
-          <span class="button-left"><a href="/auth/users/new"></a></span><span class="button-middle"><a href="/auth/users/new">Create Account</a></span><span class="button-right"><a href="/auth/users/new"></a></span>
+        <span class="button-left"><a href="<%= @signup_url %>"></a></span><span class="button-middle"><a href="<%= @signup_url %>">Create Account</a></span><span class="button-right"><a href="<%= @signup_url %>"></a></span>
       </div>
 
     </td>
