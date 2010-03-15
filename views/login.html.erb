@@ -8,33 +8,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Account</title>
-        
-    <link rel="stylesheet" type="text/css" href="/stylesheets/carbon.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/colors.css" />
-    <link rel="stylesheet" type="text/css" href="http://staging.themes.exvo.com/stylesheets/themes/carbon/all.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
-
-      <script type="text/javascript">
-        var theme_path = 'http://themes.exvo.com/Themes/Carbon/';
-        var images_path = theme_path + 'images/';
-        var desktop_url = 'http://desktop.exvo.com/';
-        var logged = <%= @logged_in ? 'true' : 'false' %>;
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Exvo ID - Login</title>
+      <script src="http://www.google.com/jsapi"></script>
+      <script type="application/javascript">
+      google.load("jquery", "1.4.1");
+      google.load("jqueryui", "1.7.2");
       </script>
 
-      <script type="text/javascript" src="http://themes.exvo.com/js/jquery-1.3.2.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/jquery-ui-1.7.2.custom.min.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/imagetick.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/jquery.selectbox-0.3.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/jquery.contextMenu.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/jquery.cacheimage.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/images_preloader.js"></script>
-<script type="text/javascript" src="http://themes.exvo.com/js/general.js"></script>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/carbon.css" />
 
-<script type="text/javascript" src="http://themes.exvo.com/js/events.js"></script>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/colors.css" />
+      <link rel="stylesheet" type="text/css" href="http://staging.themes.exvo.com/stylesheets/themes/carbon/all.css" />
+      <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 
-    
+      <script type="text/javascript">
+        var theme_path = 'http://themes.bashquest.com/Themes/Carbon/';
+        var images_path = theme_path + 'images/';
+        var desktop_url = 'http://desktop.bashquest.com/';
+        var logged = false;
+      </script>
+      <script type="text/javascript" src="/javascripts/application.js"></script>
+      <script type="text/javascript" src="/javascripts/events.js"></script>
+      <script type="text/javascript" src="http://staging.themes.exvo.com/javascripts/jquery.uniform.js"></script>    
     </head>
     <body>
     
@@ -64,23 +60,12 @@
         <div class='shortcut'><table><tr><td><a href='' id='_icon' title='Help'><img src="/images/old_theme/help.png?010815012184" /><span class='shortcut-caption'>Help</span></a></td></tr></table></div>
         <div class='shortcut'><table><tr><td><a href='/logout' id='_icon' title='Logout'><img src="/images/old_theme/logout.png?01081501210" /><span class='shortcut-caption'>Logout</span></a></td></tr></table></div>
             <% else %>
-        <table class="login-buttons">
-          <tr>
-            <td class="btn">
-      <div class="button ">
-          <span class="button-left"><a href="/login"></a></span><span class="button-middle"><a href="/login">Login</a></span><span class="button-right"><a href="/login"></a></span>
-
-      </div>
-    </td>
-            <td class="txt">or</td>
-            <td class="btn">
-      <div class="button ">
-        <span class="button-left"><a href="<%= @signup_url %>"></a></span><span class="button-middle"><a href="<%= @signup_url %>">Signup</a></span><span class="button-right"><a href="<%= @signup_url %>"></a></span>
-      </div>
-    </td>
-          </tr>
-        </table>
-      <% end %>
+              <div style="padding-top: 10px; padding-right: 20px;">
+                <a href="/login" class="button">Login</a>
+                <span style="color: white;">or</span>
+                <a href="<%= @signup_url %>" class="button">Signup</a>
+              </div>            
+            <% end %>
       
             </div>
           </td>
@@ -115,14 +100,9 @@
           </tr>
           <tr>
             <td colspan="2" class="last">
-      <div class="button ">
-        <span class="button-left"><a href="<%= @signup_url %>"></a></span><span class="button-middle"><a href="<%= @signup_url %>">Create Account</a></span><span class="button-right"><a href="<%= @signup_url %>"></a></span>
-      </div>
-
+              <a href="<%= @signup_url %>" class="button">Create Account</a>
     <% if @logged_in %>
-      <div class="button  action-button">
-          <span class="button-left"><a href="/logout"></a></span><span class="button-middle"><a href="/logout">Log Out</a></span><span class="button-right"><a href="/logout"></a></span>
-      </div>
+              <a href="/logout" class="action button">Log Out</a>
     <% end %></td>
           </tr>
         </table>
@@ -163,19 +143,14 @@
             </tr>
             <tr>
               <td class="first">
-      <div class="checkbox-wrap ">
-        <input title="Not implemented" type="checkbox" class="checkbox" name="rem-me" id="rem-me_id"/><label for="rem-me_id">Remember Me</label>
-      </div>
-
-    </td>
+                <input type="checkbox" class="checkbox" name="rem-me" title="Not implemented" id="rem-me_id"/><label for="rem-me_id">Remember Me</label>
+              </td>
               <td class="last">
-      <button type="submit" class="button submit-button "><span class="button-left"></span><span class="button-middle">Sign In</span><span class="button-right"></span>
-      </button>
-    </td>
+                <input type="submit" value="Sign In" class="button" name="submit" id="submit"/>
+              </td>
             </tr>
             <tr>
               <td class="first"><a href="/auth/lost_password">Forgot password?</a></td>
-
               <td class="last"><!--a href="/auth/users/new" title="Not implemented">Sign in with Open ID</a--></td>
             </tr>
           </table>
@@ -222,20 +197,15 @@
             </tr>
             <tr>
               <td class="first">
-      <div class="checkbox-wrap ">
-        <input title="Not implemented" type="checkbox" class="checkbox" name="rem-me" id="rem-me_id"/><label for="rem-me_id">Remember Me</label>
-      </div>
-
-    </td>
+                <input type="checkbox" class="checkbox" name="rem-me" title="Not implemented" id="rem-me_id"/><label for="rem-me_id">Remember Me</label>  
+              </td>
               <td class="last">
-      <button type="submit" class="button submit-button "><span class="button-left"></span><span class="button-middle">Sign In</span><span class="button-right"></span>
-      </button>
-    </td>
+                <input type="submit" value="Sign In" class="button" name="submit" id="submit"/>
+              </td>
             </tr>
             <tr>
               <td class="first"><a href="/auth/lost_password">Forgot password?</a></td>
-
-              <td class="last"><a href="/auth/users/new" title="Not implemented">Sign in with Open ID</a></td>
+              <td class="last"><!--a href="/auth/users/new" title="Not implemented">Sign in with Open ID</a--></td>
             </tr>
           </table>
         </form>
@@ -243,25 +213,14 @@
       <td class="last">
         <table class="login-form" style="float: left;">
           <tr>
-
             <td colspan="2"><h2>Welcome</h2></td>
           </tr>
           <tr>
             <td colspan="2"><p>Don't have an Exvo ID yet?</p><p> Create one now. It's easy and free</p></td>
           </tr>
           <tr>
-            <td>
-
-      <div class="button ">
-          <span class="button-left"><a href=""></a></span><span class="button-middle"><a href="">Read More</a></span><span class="button-right"><a href=""></a></span>
-      </div>
-    </td>
-            <td>
-      <div class="button  action-button">
-        <span class="button-left"><a href="<%= @signup_url %>"></a></span><span class="button-middle"><a href="<%= @signup_url %>">Create Account</a></span><span class="button-right"><a href="<%= @signup_url %>"></a></span>
-      </div>
-
-    </td>
+            <td><a href="" class="button">Read More</a></td>
+            <td><a href="<%= @signup_url %>" class="action button">Create Account</a></td>
           </tr>
         </table>
        </td>
