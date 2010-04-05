@@ -10,19 +10,19 @@
   <head>
     <title>Exvo ID - Login</title>    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" href="http://staging.themes.exvo.com/stylesheets/themes/carbon/all.css" charset="utf-8" rel="Stylesheet" media="all" />
-    <link type="text/css" href="http://staging.themes.exvo.com/stylesheets/themes/carbon/layout.css" charset="utf-8" rel="Stylesheet" media="all" />
-    <link type="text/css" href="/stylesheets/style.css" charset="utf-8" rel="Stylesheet" media="all" />
-    <script type="text/javascript" charset="utf-8" src="/javascripts/jquery.js"></script>
+    <link type="text/css" href="http://staging.themes.exvo.com/stylesheets/themes/carbon/all.css?04050533586" charset="utf-8" rel="Stylesheet" media="all" />
+    <link type="text/css" href="http://staging.themes.exvo.com/stylesheets/themes/carbon/layout.css?04050533586" charset="utf-8" rel="Stylesheet" media="all" />
+    <link type="text/css" href="/stylesheets/all.css?040505335897" charset="utf-8" rel="Stylesheet" media="all" />
+    <script type="text/javascript" charset="utf-8" src="/javascripts/jquery.js?040505335840"></script>
 
-    <script type="text/javascript" charset="utf-8" src="/javascripts/jquery-ui.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/javascripts/jquery.dataset.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/javascripts/scrollable.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://exvo-themes-staging.heroku.com/javascripts/jquery.uniform.js"></script>
-    <script type="text/javascript" charset="utf-8" src="http://exvo-themes-staging.heroku.com/javascripts/layout.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/javascripts/application.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/javascripts/jquery-ui.js?040505335874"></script>
+    <script type="text/javascript" charset="utf-8" src="/javascripts/jquery.dataset.js?040505335893"></script>
+    <script type="text/javascript" charset="utf-8" src="/javascripts/scrollable.js?040505335841"></script>
+    <script type="text/javascript" charset="utf-8" src="http://exvo-themes-staging.heroku.com/javascripts/jquery.uniform.js?040505335839"></script>
+    <script type="text/javascript" charset="utf-8" src="http://exvo-themes-staging.heroku.com/javascripts/layout.js?040505335872"></script>
+    <script type="text/javascript" charset="utf-8" src="/javascripts/application.js?040505335893"></script>
 
-    <script type="text/javascript" charset="utf-8" src="/javascripts/events.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/javascripts/events.js?040505335836"></script>
   </head>
   <body>
     <div class="layout">
@@ -42,35 +42,32 @@
   </div> 
   <div class='cell two-fifths right'>
     <% if @logged_in %>
-      <div class='shortcuts right'>
-        <div class='shortcut account' data-href='https://auth.exvo.com:4430/auth/account/basics'>
-          <div class='icon small'>
-            <div class='image'></div>
-          </div>
-          <h3>account</h3>
+    <div class='shortcuts right'>
+      <div class='shortcut account' data-href='https://auth.exvo.com:4430/auth/account/basics'>
+        <div class='icon small'>
+          <div class='image'></div>
         </div>
-        <div class='shortcut refresh' data-href='#'>
-
-          <div class='icon small'>
-            <div class='image'></div>
-          </div>
-          <h3>refresh</h3>
-        </div>
-        <div class='shortcut help' data-href='/help'>
-          <div class='icon small'>
-            <div class='image'></div>
-
-          </div>
-          <h3>help</h3>
-        </div>
-        <div class='shortcut logout' data-href='/logout'>
-          <div class='icon small'>
-            <div class='image'></div>
-          </div>
-          <h3>logout</h3>
-
-        </div>
+        <h3>account</h3>
       </div>
+      <div class='shortcut refresh' data-href='#'>
+        <div class='icon small'>
+          <div class='image'></div>
+        </div>
+        <h3>refresh</h3>
+      </div>
+      <div class='shortcut help' data-href='/help'>
+        <div class='icon small'>
+          <div class='image'></div>
+        </div>
+        <h3>help</h3>
+      </div>
+      <div class='shortcut logout' data-href='/logout'>
+        <div class='icon small'>
+          <div class='image'></div>
+        </div>
+        <h3>logout</h3>
+      </div>
+    </div>
     <% else %>
       <a class='button carbon' href='/login'>Login</a>
       or
@@ -90,145 +87,45 @@
 
       </div>
       <div id="bd">
-        <div class="login-box">
+        <div class="title">
   <h1>Sign in to Continue</h1>
-  <hr />
+</div>
+<div class="login <%= @message ? 'is-msg' : '' %>">
 
-<% if @message %>
-  <table class="auth-login">
-    <tr>
-      <td class="first">
-        <table class="login-form attention" style="float: right;">
-          <tr>
-            <td class="attention-img"><img src="/images/attention.png?040114052181" /></td>
-            <td class="first"><h3 class="messagebox <%= @message[:type] %>"><%= @message[:message] %></h3><!--h3>Already Signed In</h3><p>You are currently signed in as </p><p>If this is not you, please login with your ID</p--></td>
-          </tr>
+  <div class="login-form">
+    <form id="login-form" action="<%= @form_action || "/login" %>" method="post">
+    <input type="hidden" value="<%= @lt %>" class="hidden" name="lt" id="nil_class_lt"/>
+    <input type="hidden" value="<%= @service %>" class="hidden" name="service" id="nil_class_service"/>
+    <h3>Enter your Exvo ID and Password</h3>
+    <input type="text" value="" class="text" name="username" id="nil_class_username"/>
+    <input type="password" value="" class="password" name="password" id="nil_class_password"/>
+    <input type="checkbox" class="checkbox" name="rem-me" id="rem-me_id"/><label for="rem-me_id">Remember Me</label>
 
-          <tr>
-            <td colspan="2" class="last"><a href="<%= @signup_url %>" class="button">Create Account</a><% if @logged_in %><a href="/logout" class="action button">Log Out</a><% end %></td>
-          </tr>
-        </table>
-      </td>
-      <td class="last">
-        <form id="login-form" action="<%= @form_action || "/login" %>" method="post">
-          <input type="hidden" value="<%= @lt %>" class="hidden" name="lt" id="nil_class_lt"/>
-
-          <input type="hidden" value="<%= @service %>" class="hidden" name="service" id="nil_class_service"/>
-          <table class="login-form" style="float: left">
-            <tr>
-              <td colspan="2"><h3>Enter your Exvo ID and Password</h3></td>
-            </tr>
-            <tr>
-              <td colspan="2">
-      <div class="input ">
-
-        <span class="left">
-        </span>
-        <input type="text" value="" class="text" name="username" id="nil_class_username"/>
-        <span class="right">
-        </span>
-      </div>
-    </td>
-            </tr>
-            <tr>
-
-              <td colspan="2">
-      <div class="input ">
-        <span class="left">
-        </span>
-        <input type="password" value="" class="password" name="password" id="nil_class_password"/>
-        <span class="right">
-        </span>
-      </div>
-    </td>
-
-            </tr>
-            <tr>
-              <td class="first"><input type="checkbox" class="checkbox" name="rem-me" id="rem-me_id"/><label for="rem-me_id">Remember Me</label></td>
-              <td class="last"><input type="submit" value="Sign In" class="button" name="form_submit" id="form_submit"/></td>
-            </tr>
-            <tr>
-              <td class="first"><a href="/auth/lost_password">Forgot password?</a></td>
-              <td class="last"><!--a href="/auth/users/new" title="Not implemented">Sign in with Open ID</a--></td>
-
-            </tr>
-          </table>
-        </form>
-      </td>
-    </tr>
-  </table>
-<% else %>
-  <table class="auth-login">
-    <tr>
-      <td class="first">
-
-        <form id="login-form" action="<%= @form_action || "/login" %>" method="post">
-          <input type="hidden" value="<%= @lt %>" class="hidden" name="lt" id="nil_class_lt"/>
-          <input type="hidden" value="<%= @service %>" class="hidden" name="service" id="nil_class_service"/>
-          <table class="login-form" style="float: right">
-            <tr>
-              <td colspan="2"><h3>Enter your Exvo ID and Password</h3></td>
-            </tr>
-            <tr>
-              <td colspan="2">
-
-      <div class="input ">
-        <span class="left">
-        </span>
-        <input type="text" value="" class="text" name="username" id="nil_class_username"/>
-        <span class="right">
-        </span>
-      </div>
-    </td>
-            </tr>
-
-            <tr>
-              <td colspan="2">
-      <div class="input ">
-        <span class="left">
-        </span>
-        <input type="password" value="" class="password" name="password" id="nil_class_password"/>
-        <span class="right">
-        </span>
-      </div>
-
-    </td>
-            </tr>
-            <tr>
-              <td class="first"><input type="checkbox" class="checkbox" name="rem-me" id="rem-me_id"/><label for="rem-me_id">Remember Me</label></td>
-              <td class="last"><input type="submit" value="Sign In" class="button" name="form_submit" id="form_submit"/></td>
-            </tr>
-            <tr>
-              <td class="first"><a href="/auth/lost_password">Forgot password?</a></td>
-
-              <td class="last"><!--a href="/auth/users/new" title="Not implemented">Sign in with Open ID</a--></td>
-            </tr>
-          </table>
-        </form>
-      </td>
-      <td class="last">
-        <table class="login-form" style="float: left;">
-          <tr>
-            <td colspan="2"><h2>Welcome</h2></td>
-
-          </tr>
-          <tr>
-            <td colspan="2"><p>Don't have an Exvo ID yet?</p><p> Create one now. It's easy and free</p></td>
-          </tr>
-          <tr>
-            <td><a href="" class="button">Read More</a></td>
-            <td><a href="<%= @signup_url %>" class="action button">Create Account</a></td>
-
-          </tr>
-        </table>
-       </td>
-     </tr>
-   </table>
-<% end %>
+    <input type="submit" value="Sign In" class="button" name="form_submit" id="form_submit"/>
+    <div class="links">
+      <a href="/auth/lost_password">Forgot password?</a>
+      <a href="/auth/users/new" title="Not implemented">Sign in with Open ID</a>
+    </div>
+    </form>
+  </div>
+  <div>
+    <% if @message %>
+      <p class="messagebox <%= @message[:type] %>"><%= @message[:message] %></p>
+      <a href="/logout" class="action button">Log Out</a>
+      <a href="<%= @signup_url %>" class="button">Create Account</a>
+    <% else %>
+      <h2>Welcome</h2>
+      <p>Don't have an Exvo ID yet?</p><p> Create one now. It's easy and free</p>
+      <a href="" class="button">Read More</a>
+      <a href="<%= @signup_url %>" class="action button">Create Account</a>
+    <% end %>
+ </div>
 </div>
 
       </div>
+      <!--div class="bottom bar"></div-->
     </div>
+
     <!-- Start Google Analytics tag Exvo.com Overall Traffic-->
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -256,4 +153,5 @@ pageTracker._trackPageview();
 <!-- End Google Analytics tag -->
 
   </body>
+
 </html>
