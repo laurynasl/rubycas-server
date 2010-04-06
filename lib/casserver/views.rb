@@ -35,7 +35,7 @@ module CASServer::Views
   def login
     # rendering using ERB template
     require 'erb'
-    data = File.read('views/login.html.erb')
+    data = File.read(File.dirname(__FILE__) + '/../../views/login.html.erb')
     return ERB.new(data).result(binding)
 
     @use_layout = true
